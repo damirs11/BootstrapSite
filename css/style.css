@@ -24,6 +24,22 @@
 	color: #333;
   }
   
+  img {
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  .navbar-brand {
+    float: left;
+    height: 50px;
+    padding: 0px;
+    padding-right: 25px;
+    font-size: 18px;
+    line-height: 20px;
+  }
   
   /*
    * Override Bootstrap's default container.
@@ -160,6 +176,8 @@
    */
   
   .blog-footer {
+  clear: both;
+  position: relative;
 	padding: 40px 0;
 	color: #999;
 	text-align: center;
