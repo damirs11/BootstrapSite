@@ -5,7 +5,7 @@ $(document).ready(function(){
     var res = db.exec("SELECT * FROM postsTable")
     console.log(res[0].values.length);
 
-    if(!initBlogFeed_status)
+    if(!initBlogFeed_status) //initFirstPage
     {   
         var posts = db.exec("SELECT * FROM postsTable WHERE id BETWEEN " + 
         (0 + 1) + 
@@ -27,7 +27,7 @@ $(document).ready(function(){
         });
         html += '</div>';
 
-        $("#main-content-blog").html(html); // some ajax content loading...
+        $("#main-content-blog").html(html); // content loading
     }
 
     // init bootpag
@@ -58,7 +58,7 @@ $(document).ready(function(){
         });
         html += '</div>';
 
-        $("#main-content-blog").html(html); // some ajax content loading...
+        $("#main-content-blog").html(html); // content loading
     });
     
 });
