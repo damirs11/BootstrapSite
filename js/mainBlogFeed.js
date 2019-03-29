@@ -124,3 +124,56 @@ AboutMeFunction = {
     } 
 }
 
+MyProjectsFunction = 
+{   
+    init : function initBlogFeed(){
+
+        $(document).ready(function(){
+            var res = db.exec("SELECT * FROM projectsTable")
+            console.log(res[0].values.length);
+
+            // init bootpag
+            $('#page-selection').bootpag({
+                total: res[0].values.length / 2,
+                maxVisible: 5
+            }).on("page", function(event, pageNumber){
+
+                $('html, body').animate({ scrollTop: 0 }, 'fast');
+
+                var countPage = pageNumber - 1;
+
+                var posts = db.exec("SELECT * FROM postsTable WHERE id BETWEEN " + 
+                (countPage + pageNumber) + 
+                " AND " + 
+                ((countPage + pageNumber) + 1))[0].values
+                console.log(posts);
+
+                var html = '<div class="row" id="main-content-blog">'
+
+                html += '<div class="blog-header">';
+                html += '<h1 class="blog-title">The Bootstrap Blog</h1>';
+                html += '<p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>';
+                html += '</div>'; //blog-header
+                
+                //<!-- Posts of blog -->
+                
+                html += '<div class="col-sm-8 blog-main">';
+                $.each(posts, function (index, value) { 
+                    html += '<div class="blog-post">';
+                    html += '<h2 class="blog-post-title">'+ value[1] +'</h2>';
+                    html += '<p class="blog-post-meta">' + value[2] + ' by <a onclick="AboutMeFunction.init()">'+ value[3] +'</a></p>';
+                    html += '<div class="blog-post-content">';
+                    html += value[4]
+                    html += '</div>'
+                    html += '</div>';
+                });
+                html += '</div>'; //blog-main
+                html += '</div>'; //main-content-blog
+
+                
+
+                $(".page-content").html(html); // content loading
+            });
+        });
+    }
+}

@@ -27,11 +27,28 @@ $(document).ready(function(){
       "('TitleOfBlog3',             date('now','-4 months'),      '~Dew',     'Третья провека рабоыт текста с date(now - 4 месяца)')," + 
       "('TitleOfBlog4',             date('now','-6 months'),      '~Dew',     'Четвертая провека рабоыт текста с date(now - 6 месяца)');"
 
+      var dbProjects_create = 
+            "CREATE TABLE 'projectsTable' (" +
+            "'id'             INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+            "'title'          TEXT default NULL, " +
+            "'picLocation'    TEXT default NULL," +
+            "'mainText'       TEXT default NULL" +
+      ");"
+      var dbProjects_createData = 
+      "INSERT INTO 'projectsTableTable' ('title','date', 'author', 'mainText')" + 
+      "VALUES ('TitleOfBlog1',            'path/to/pic',     'Первая провека рабоыт текста')," + 
+      "('TitleOfBlog2',                   'path/to/pic',     'Вторая провека рабоыт текста')," + 
+      "('TitleOfBlog3',                   'path/to/pic',     'Третья провека рабоыт текста')," + 
+      "('TitleOfBlog4',                   'path/to/pic',     'Четвертая провека рабоыт текста');"
+
       db.run(dbtest_create);
       db.run(dbtest_createData);
 
       db.run(dbBlog_create);
       db.run(dbBlog_createData);
+
+      db.run(dbProjects_create);
+      db.run(dbProjects_createData);
 
 
 
@@ -39,5 +56,8 @@ $(document).ready(function(){
       console.log(res);
 
       var res = db.exec("SELECT * FROM postsTable");
+      console.log(res);
+
+      var res = db.exec("SELECT * FROM projectsTable");
       console.log(res);
 });
