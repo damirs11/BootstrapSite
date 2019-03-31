@@ -39,12 +39,12 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" onclick=BlogFunction.init(); href="#"><img src="assets/Logo.jpg"></a>
-			<a class="navbar-brand" id="logo-font" onclick="BlogFunction.init();" href="#"><img src="assets/yoster-island.regular.png"></a>
+			<a class="navbar-brand" onclick="BlogFunction.init(); BlogFunction.reset();" href="#"><img src="assets/Logo.jpg"></a>
+			<a class="navbar-brand" id="logo-font" onclick="BlogFunction.init(); BlogFunction.reset();" href="#"><img src="assets/yoster-island.regular.png"></a>
 		</div>
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a onclick="BlogFunction.init();" href="#">Главная страница</a></li>
+				<li><a onclick="BlogFunction.init(); BlogFunction.reset(); " href="#">Главная страница</a></li>
 				<li><a onclick="AboutMeFunction.init()" href="#">Обо мне</a></li>
 				<li><a href="#">Проекты</a></li>
 				<li><a href="#">Полезности</a></li>

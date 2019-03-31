@@ -1,4 +1,6 @@
 var initBlogFeed_status = false;
+var initAboutMeFeed_status = false;
+var initMyProjectsFeed_status = false;
 
 BlogFunction = 
 {   
@@ -8,11 +10,14 @@ BlogFunction =
             var res = db.exec("SELECT * FROM postsTable")
             console.log(res[0].values.length);
 
+            initAboutMeFeed_status = false;
+            initMyProjectsFeed_status = false;
+
             if(!initBlogFeed_status) //initFirstPage
             {   
-                initBlogFeed = true;
+                initBlogFeed_status = true;
 
-                $('html, body').animate({ scrollTop: 0 }, 'fast');
+                $('html, body').stop().animate({ scrollTop: 0 }, 'fast');
 
                 var posts = db.exec("SELECT * FROM postsTable WHERE id BETWEEN " + 
                 (0 + 1) + 
@@ -36,7 +41,16 @@ BlogFunction =
                     html += '<h2 class="blog-post-title">'+ value[1] +'</h2>';
                     html += '<p class="blog-post-meta">' + value[2] + ' by <a onclick="AboutMeFunction.init()">'+ value[3] +'</a></p>';
                     html += '<div class="blog-post-content">';
-                    html += value[4]
+
+                    console.log(value[4].length);
+
+                    if(value[4].length > 140){
+                        html += value[4].slice(0, 140);
+                        html += '... <hr><a href="#">Продолжение...</a>';
+                    }
+                    else
+                        html += value[4];
+
                     html += '</div>'
                     html += '</div>';
                 });
@@ -55,7 +69,7 @@ BlogFunction =
                 maxVisible: 5
             }).on("page", function(event, pageNumber){
 
-                $('html, body').animate({ scrollTop: 0 }, 'fast');
+                $('html, body').stop().animate({ scrollTop: 0 }, 'fast');
 
                 var countPage = pageNumber - 1;
 
@@ -80,7 +94,16 @@ BlogFunction =
                     html += '<h2 class="blog-post-title">'+ value[1] +'</h2>';
                     html += '<p class="blog-post-meta">' + value[2] + ' by <a onclick="AboutMeFunction.init()">'+ value[3] +'</a></p>';
                     html += '<div class="blog-post-content">';
-                    html += value[4]
+
+                    console.log(value[4].length);
+
+                    if(value[4].length > 140){
+                        html += value[4].slice(0, 140);
+                        html += '... <hr><a href="#">Продолжение...</a>';
+                    }
+                    else
+                        html += value[4];
+
                     html += '</div>'
                     html += '</div>';
                 });
@@ -92,6 +115,14 @@ BlogFunction =
                 $(".page-content").html(html); // content loading
             });
         });
+    },
+
+    reset : function resetBootpage(){
+            $('ul.bootpag>li').not('.prev').first().trigger('click');
+    },
+
+    generatePost : function generatePost(){
+        
     }
 }
 
@@ -100,7 +131,13 @@ AboutMeFunction = {
     init : function (){
         $(document).ready(function(){
 
-            $('html, body').animate({ scrollTop: 0 }, 'fast');
+            initBlogFeed_status = false;
+            initMyProjectsFeed_status = false;
+
+            initAboutMeFeed_status = true;
+
+
+            $('html, body').stop().animate({ scrollTop: 0 }, 'fast');
             $('#page-selection').empty();
 
             var html = '<div class="blog-header">';
@@ -132,13 +169,18 @@ MyProjectsFunction =
             var res = db.exec("SELECT * FROM projectsTable")
             console.log(res[0].values.length);
 
+            initBlogFeed_status = false;
+            initAboutMeFeed_status = false;
+
+            initMyProjectsFeed_status = true;
+
             // init bootpag
             $('#page-selection').bootpag({
                 total: res[0].values.length / 2,
                 maxVisible: 5
             }).on("page", function(event, pageNumber){
 
-                $('html, body').animate({ scrollTop: 0 }, 'fast');
+                $('html, body').stop().animate({ scrollTop: 0 }, 'fast');
 
                 var countPage = pageNumber - 1;
 
@@ -163,7 +205,14 @@ MyProjectsFunction =
                     html += '<h2 class="blog-post-title">'+ value[1] +'</h2>';
                     html += '<p class="blog-post-meta">' + value[2] + ' by <a onclick="AboutMeFunction.init()">'+ value[3] +'</a></p>';
                     html += '<div class="blog-post-content">';
-                    html += value[4]
+
+                    if(value[4].length > 140){
+                        html += value[4];
+                    }
+                    else
+                        html += value[4];
+
+
                     html += '</div>'
                     html += '</div>';
                 });

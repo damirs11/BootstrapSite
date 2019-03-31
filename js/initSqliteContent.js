@@ -22,7 +22,7 @@ $(document).ready(function(){
       ");"
       var dbBlog_createData = 
       "INSERT INTO 'postsTable' ('title','date', 'author', 'mainText')" + 
-      "VALUES ('TitleOfBlog1',      date('now'),                  '~Dew',     'Первая провека рабоыт текста с date(now)')," + 
+      "VALUES ('TitleOfBlog1',      date('now'),                  '~Dew',     'Здесь какойто очень умный текст большой как моя мать и иди нахуй нахуя ты это читаешь еблан это писал такой же еблан как и ты тварь падопаоу соси бибу быбдло ОГРОМНЫЙ СУКА ТЕКСТ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Первая провека рабоыт текста с date(now)')," + 
       "('TitleOfBlog2',             date('now','-2 months'),      '~Dew',     'Вторая провека рабоыт текста с date(now - 2 месяца)')," + 
       "('TitleOfBlog3',             date('now','-4 months'),      '~Dew',     'Третья провека рабоыт текста с date(now - 4 месяца)')," + 
       "('TitleOfBlog4',             date('now','-6 months'),      '~Dew',     'Четвертая провека рабоыт текста с date(now - 6 месяца)');"
@@ -35,7 +35,7 @@ $(document).ready(function(){
             "'mainText'       TEXT default NULL" +
       ");"
       var dbProjects_createData = 
-      "INSERT INTO 'projectsTableTable' ('title','date', 'author', 'mainText')" + 
+      "INSERT INTO 'projectsTable' ('title','picLocation', 'mainText')" + 
       "VALUES ('TitleOfBlog1',            'path/to/pic',     'Первая провека рабоыт текста')," + 
       "('TitleOfBlog2',                   'path/to/pic',     'Вторая провека рабоыт текста')," + 
       "('TitleOfBlog3',                   'path/to/pic',     'Третья провека рабоыт текста')," + 
