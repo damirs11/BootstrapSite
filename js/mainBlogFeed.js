@@ -8,7 +8,6 @@ BlogFunction =
 
         $(document).ready(function(){
             var res = db.exec("SELECT * FROM postsTable")
-            console.log(res[0].values.length);
 
             initAboutMeFeed_status = false;
             initMyProjectsFeed_status = false;
@@ -23,8 +22,6 @@ BlogFunction =
                 (0 + 1) + 
                 " AND " + 
                 ((0 + 1) + 1))[0].values;
-
-                console.log(posts);
 
                 var html = '<div class="row" id="main-content-blog">'
 
@@ -75,7 +72,6 @@ BlogFunction =
                 (countPage + pageNumber) + 
                 " AND " + 
                 ((countPage + pageNumber) + 1))[0].values
-                console.log(posts);
 
                 var html = '<div class="row" id="main-content-blog">'
 
@@ -129,7 +125,6 @@ BlogFunction =
         $('html, body').stop().animate({ scrollTop: 0 }, 'fast');
 
         var posts = db.exec("SELECT * FROM postsTable WHERE id = " + id)[0].values;
-        console.log(posts);
 
         var html = '<div class="row" id="main-content-blog">'
 
@@ -174,20 +169,12 @@ AboutMeFunction = {
             
             html += '<div class="col-sm-8 blog-main">';
             
-                html += '<div class="blog-post">';
-                html += '<h2 class="blog-post-title"> Заголовок </h2>';
-                html += '<div class="blog-post-content">';
-                html += '<p> Контент </p>'
-                html += '</div>'
-                html += '</div>';
+                html += aboutMe;
             
             html += '</div>';
 
             $(".page-content").html(html); // content loading
         });
-    },
-    reset : function resetBootpage(){
-        $('ul.bootpag>li').not('.prev').first().trigger('click');
     },
 
     generatePost : function generatePost(){
@@ -201,7 +188,6 @@ MyProjectsFunction =
 
         $(document).ready(function(){
             var res = db.exec("SELECT * FROM projectsTable")
-            console.log(res[0].values.length);
 
             initBlogFeed_status = false;
             initAboutMeFeed_status = false;
@@ -217,8 +203,6 @@ MyProjectsFunction =
                 " AND " + 
                 ((0 + 1) + 1))[0].values;
 
-                console.log(posts);
-
                 var html = '<div class="row" id="main-content-blog">'
 
                 html += '<div class="blog-header">';
@@ -232,8 +216,6 @@ MyProjectsFunction =
                     html += '<h2 class="blog-post-title">'+ value[1] +'</h2>';
                     html += '<img alt="путь к картинке" src="'+ value[2] +'"></img>';
                     html += '<div class="blog-post-content">';
-
-                    console.log(value[3].length);
 
                     if(value[3].length > 140){
                         html += value[3].slice(0, 140);
@@ -268,7 +250,6 @@ MyProjectsFunction =
                 (countPage + pageNumber) + 
                 " AND " + 
                 ((countPage + pageNumber) + 1))[0].values
-                console.log(posts);
 
                 var html = '<div class="row" id="main-content-blog">'
 

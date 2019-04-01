@@ -325,3 +325,16 @@ table[2][1]=5
 </pre>
 </div>
 `
+var aboutMe = `
+<style>
+.aboutMeLogo {
+    margin: 0;
+    width: 50%;
+    height: 50%;
+}       
+</style>
+
+<dir class="aboutMeLogo"><img src="assets/Logo.jpg"></dir>
+<dir><p>Здравствуйте, меня зовут Дамир</p></dir>
+
+`

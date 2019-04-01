@@ -21,7 +21,6 @@ $(document).ready(function(){
             "'author'   TEXT default NULL," +
             "'mainText' TEXT default NULL" +
       ");"
-
       var dbBlog_createData = 
       "INSERT INTO 'postsTable' ('title', 'article','date', 'author', 'mainText')" + 
       "VALUES ('Указатели',         'Что такое указатели',        date('now'),       '~Dew',     '" + post_1.toString() + "')," + 
