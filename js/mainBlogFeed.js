@@ -46,7 +46,7 @@ BlogFunction =
 
                     if(value[4].length > 140){
                         html += value[4].slice(0, 140);
-                        html += '... <hr><a href="#">Продолжение...</a>';
+                        html += '... <hr><a onclick="BlogFunction.generatePost()" href="#">Продолжение...</a>';
                     }
                     else
                         html += value[4];
@@ -99,7 +99,7 @@ BlogFunction =
 
                     if(value[4].length > 140){
                         html += value[4].slice(0, 140);
-                        html += '... <hr><a href="#">Продолжение...</a>';
+                        html += '... <hr><a onclick="BlogFunction.generatePost()" href="#">Продолжение...</a>';
                     }
                     else
                         html += value[4];
@@ -118,11 +118,11 @@ BlogFunction =
     },
 
     reset : function resetBootpage(){
-            $('ul.bootpag>li').not('.prev').first().trigger('click');
+        $('ul.bootpag>li').not('.prev').first().trigger('click');
     },
 
     generatePost : function generatePost(){
-        
+        console.log("Генерация...")
     }
 }
 
@@ -135,7 +135,6 @@ AboutMeFunction = {
             initMyProjectsFeed_status = false;
 
             initAboutMeFeed_status = true;
-
 
             $('html, body').stop().animate({ scrollTop: 0 }, 'fast');
             $('#page-selection').empty();
@@ -158,7 +157,14 @@ AboutMeFunction = {
 
             $(".page-content").html(html); // content loading
         });
-    } 
+    },
+    reset : function resetBootpage(){
+        $('ul.bootpag>li').not('.prev').first().trigger('click');
+    },
+
+    generatePost : function generatePost(){
+        
+    }
 }
 
 MyProjectsFunction = 
@@ -172,7 +178,53 @@ MyProjectsFunction =
             initBlogFeed_status = false;
             initAboutMeFeed_status = false;
 
-            initMyProjectsFeed_status = true;
+            if(!initBlogFeed_status) //initFirstPage
+            {   
+                initMyProjectsFeed_status = true;
+
+                $('html, body').stop().animate({ scrollTop: 0 }, 'fast');
+
+                var posts = db.exec("SELECT * FROM projectsTable WHERE id BETWEEN " + 
+                (0 + 1) + 
+                " AND " + 
+                ((0 + 1) + 1))[0].values;
+
+                console.log(posts);
+
+                var html = '<div class="row" id="main-content-blog">'
+
+                html += '<div class="blog-header">';
+                html += '<h1 class="blog-title">The Bootstrap Blog</h1>';
+                html += '<p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>';
+                html += '</div>'; //blog-header
+                
+                html += '<div class="col-sm-8 blog-main">';
+                $.each(posts, function (index, value) { 
+                    html += '<div class="blog-post">';
+                    html += '<h2 class="blog-post-title">'+ value[1] +'</h2>';
+                    html += '<img alt="путь к картинке" src="'+ value[2] +'"></img>';
+                    html += '<div class="blog-post-content">';
+
+                    console.log(value[3].length);
+
+                    if(value[3].length > 140){
+                        html += value[3].slice(0, 140);
+                        html += '... <hr><a href="#">Продолжение...</a>';
+                    }
+                    else
+                        html += value[3];
+
+                    html += '</div>'
+                    html += '</div>';
+                });
+                html += '</div>'; //blog-main
+                html += '</div>'; //main-content-blog
+                
+                
+                
+
+                $(".page-content").html(html); // content loading
+            }
 
             // init bootpag
             $('#page-selection').bootpag({
@@ -184,7 +236,7 @@ MyProjectsFunction =
 
                 var countPage = pageNumber - 1;
 
-                var posts = db.exec("SELECT * FROM postsTable WHERE id BETWEEN " + 
+                var posts = db.exec("SELECT * FROM projectsTable WHERE id BETWEEN " + 
                 (countPage + pageNumber) + 
                 " AND " + 
                 ((countPage + pageNumber) + 1))[0].values
@@ -203,14 +255,15 @@ MyProjectsFunction =
                 $.each(posts, function (index, value) { 
                     html += '<div class="blog-post">';
                     html += '<h2 class="blog-post-title">'+ value[1] +'</h2>';
-                    html += '<p class="blog-post-meta">' + value[2] + ' by <a onclick="AboutMeFunction.init()">'+ value[3] +'</a></p>';
+                    html += '<img alt="путь к картинке">'+ value[2] +'</img>';
                     html += '<div class="blog-post-content">';
 
-                    if(value[4].length > 140){
-                        html += value[4];
+                    if(value[3].length > 140){
+                        html += value[3].slice(0, 140);
+                        html += '... <hr><a href="#">Продолжение...</a>';
                     }
                     else
-                        html += value[4];
+                        html += value[3];
 
 
                     html += '</div>'

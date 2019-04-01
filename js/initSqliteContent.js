@@ -36,7 +36,7 @@ $(document).ready(function(){
       ");"
       var dbProjects_createData = 
       "INSERT INTO 'projectsTable' ('title','picLocation', 'mainText')" + 
-      "VALUES ('TitleOfBlog1',            'path/to/pic',     'Первая провека рабоыт текста')," + 
+      "VALUES ('TitleOfBlog1',            'assets/Logo.jpg',     'Первая провека рабоыт текста')," + 
       "('TitleOfBlog2',                   'path/to/pic',     'Вторая провека рабоыт текста')," + 
       "('TitleOfBlog3',                   'path/to/pic',     'Третья провека рабоыт текста')," + 
       "('TitleOfBlog4',                   'path/to/pic',     'Четвертая провека рабоыт текста');"
