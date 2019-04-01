@@ -42,11 +42,9 @@ BlogFunction =
                     html += '<p class="blog-post-meta">' + value[3] + ' by <a onclick="AboutMeFunction.init()">'+ value[4] +'</a></p>';
                     html += '<div class="blog-post-content">';
 
-                    console.log(value[5].trim());
-
                     if(value[5].length > 260){
                         html += value[5].slice(0, 260);
-                        html += '... <hr><a onclick="BlogFunction.generatePost('+ value[0] +'); BlogFunction.delete();" href="#">Продолжение...</a>';
+                        html += '... <hr><a onclick="BlogFunction.generatePost('+ value[0] +'); BlogFunction.delete();" name="#main/' + value[0] + '" href="#main/' + value[0] + '">Продолжение...</a>';
                     }
                     else
                         html += value[5];
@@ -95,11 +93,9 @@ BlogFunction =
                     html += '<p class="blog-post-meta">' + value[2] + ' by <a onclick="AboutMeFunction.init()">'+ value[3] +'</a></p>';
                     html += '<div class="blog-post-content">';
 
-                    console.log(value[5].length);
-
                     if(value[5].length > 260){
                         html += value[5].slice(0, 260);
-                        html += '... <hr><a onclick="BlogFunction.generatePost('+ value[0] +'); BlogFunction.delete();" href="#">Продолжение...</a>';
+                        html += '... <hr><a onclick="BlogFunction.generatePost('+ value[0] +'); BlogFunction.delete();" name="#main/' + value[0] + '" href="#main/' + value[0] + '">Продолжение...</a>';
                     }
                     else
                         html += value[5];
@@ -122,7 +118,7 @@ BlogFunction =
     },
 
     delete : function deleteBootpage(){
-        $("#page-selection").remove();
+        $("#page-selection").empty();
     },
 
     generatePost : function generatePost(id){
