@@ -29,8 +29,8 @@ BlogFunction =
                 var html = '<div class="row" id="main-content-blog">'
 
                 html += '<div class="blog-header">';
-                html += '<h1 class="blog-title">The Bootstrap Blog</h1>';
-                html += '<p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>';
+                html += '<h1 class="blog-title">Последнии обновления</h1>';
+                html += '<p class="lead blog-description">Добро пожаловать!</p>';
                 html += '</div>'; //blog-header
                 
                 //<!-- Posts of blog -->
@@ -39,17 +39,17 @@ BlogFunction =
                 $.each(posts, function (index, value) { 
                     html += '<div class="blog-post">';
                     html += '<h2 class="blog-post-title">'+ value[1] +'</h2>';
-                    html += '<p class="blog-post-meta">' + value[2] + ' by <a onclick="AboutMeFunction.init()">'+ value[3] +'</a></p>';
+                    html += '<p class="blog-post-meta">' + value[3] + ' by <a onclick="AboutMeFunction.init()">'+ value[4] +'</a></p>';
                     html += '<div class="blog-post-content">';
 
-                    console.log(value[4].length);
+                    console.log(value[5].trim());
 
-                    if(value[4].length > 140){
-                        html += value[4].slice(0, 140);
-                        html += '... <hr><a onclick="BlogFunction.generatePost()" href="#">Продолжение...</a>';
+                    if(value[5].length > 260){
+                        html += value[5].slice(0, 260);
+                        html += '... <hr><a onclick="BlogFunction.generatePost('+ value[0] +'); BlogFunction.delete();" href="#">Продолжение...</a>';
                     }
                     else
-                        html += value[4];
+                        html += value[5];
 
                     html += '</div>'
                     html += '</div>';
@@ -82,8 +82,8 @@ BlogFunction =
                 var html = '<div class="row" id="main-content-blog">'
 
                 html += '<div class="blog-header">';
-                html += '<h1 class="blog-title">The Bootstrap Blog</h1>';
-                html += '<p class="lead blog-description">The official example template of creating a blog with Bootstrap.</p>';
+                html += '<h1 class="blog-title">Последнии обновления</h1>';
+                html += '<p class="lead blog-description">Добро пожаловать!</p>';
                 html += '</div>'; //blog-header
                 
                 //<!-- Posts of blog -->
@@ -95,14 +95,14 @@ BlogFunction =
                     html += '<p class="blog-post-meta">' + value[2] + ' by <a onclick="AboutMeFunction.init()">'+ value[3] +'</a></p>';
                     html += '<div class="blog-post-content">';
 
-                    console.log(value[4].length);
+                    console.log(value[5].length);
 
-                    if(value[4].length > 140){
-                        html += value[4].slice(0, 140);
-                        html += '... <hr><a onclick="BlogFunction.generatePost()" href="#">Продолжение...</a>';
+                    if(value[5].length > 260){
+                        html += value[5].slice(0, 260);
+                        html += '... <hr><a onclick="BlogFunction.generatePost('+ value[0] +'); BlogFunction.delete();" href="#">Продолжение...</a>';
                     }
                     else
-                        html += value[4];
+                        html += value[5];
 
                     html += '</div>'
                     html += '</div>';
@@ -121,8 +121,40 @@ BlogFunction =
         $('ul.bootpag>li').not('.prev').first().trigger('click');
     },
 
-    generatePost : function generatePost(){
+    delete : function deleteBootpage(){
+        $("#page-selection").remove();
+    },
+
+    generatePost : function generatePost(id){
         console.log("Генерация...")
+
+        initBlogFeed_status = false;
+
+        $('html, body').stop().animate({ scrollTop: 0 }, 'fast');
+
+        var posts = db.exec("SELECT * FROM postsTable WHERE id = " + id)[0].values;
+        console.log(posts);
+
+        var html = '<div class="row" id="main-content-blog">'
+
+
+        html += '<div class="col-sm-8 blog-main">';
+        $.each(posts, function (index, value) { 
+            html += '<div class="blog-post">';
+            html += '<h2 class="blog-title">'+ value[1] +'</h2>';
+            html += '<p class="lead blog-description">'+ value[2] +'</p>'
+            html += '<p class="blog-post-meta">' + value[3] + ' by <a onclick="AboutMeFunction.init()">'+ value[4] +'</a></p>';
+            html += '<div class="blog-post-content">';
+
+            html += value[5];
+
+            html += '</div>'
+            html += '</div>';
+        });
+        html += '</div>'; //blog-main
+        html += '</div>'; //main-content-blog
+        
+        $(".page-content").html(html); // content loading
     }
 }
 

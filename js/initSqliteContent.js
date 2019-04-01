@@ -16,16 +16,18 @@ $(document).ready(function(){
             "CREATE TABLE 'postsTable' (" +
             "'id'       INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
             "'title'    TEXT default NULL, " +
+            "'article'  TEXT default NULL, " +
             "'date'     TEXT," +
             "'author'   TEXT default NULL," +
             "'mainText' TEXT default NULL" +
       ");"
+
       var dbBlog_createData = 
-      "INSERT INTO 'postsTable' ('title','date', 'author', 'mainText')" + 
-      "VALUES ('TitleOfBlog1',      date('now'),                  '~Dew',     'Здесь какойто очень умный текст большой как моя мать и иди нахуй нахуя ты это читаешь еблан это писал такой же еблан как и ты тварь падопаоу соси бибу быбдло ОГРОМНЫЙ СУКА ТЕКСТ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,Первая провека рабоыт текста с date(now)')," + 
-      "('TitleOfBlog2',             date('now','-2 months'),      '~Dew',     'Вторая провека рабоыт текста с date(now - 2 месяца)')," + 
-      "('TitleOfBlog3',             date('now','-4 months'),      '~Dew',     'Третья провека рабоыт текста с date(now - 4 месяца)')," + 
-      "('TitleOfBlog4',             date('now','-6 months'),      '~Dew',     'Четвертая провека рабоыт текста с date(now - 6 месяца)');"
+      "INSERT INTO 'postsTable' ('title', 'article','date', 'author', 'mainText')" + 
+      "VALUES ('Указатели',         'Что такое указатели',        date('now'),       '~Dew',     '" + post_1.toString() + "')," + 
+      "('Динамическая память в C',             '',        date('now','-2 months'),      '~Dew',     '" + post_2.toString() + "')," + 
+      "('TitleOfBlog3',             'описание',        date('now','-4 months'),      '~Dew',     'Третья провека рабоыт текста с date(now - 4 месяца)')," + 
+      "('TitleOfBlog4',             'описание',        date('now','-6 months'),      '~Dew',     'Четвертая провека рабоыт текста с date(now - 6 месяца)');"
 
       var dbProjects_create = 
             "CREATE TABLE 'projectsTable' (" +
