@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -35,8 +35,6 @@
 	
 	<script type="text/javascript">
 		function checkHash() {
-			// Check URL using setTimeout as it may not change before
-			// listener is called
 			window.setTimeout(doHashCheck, 100)
 		}
 		var doHashCheck = (function(global) {
@@ -62,7 +60,6 @@
 		function project() {
 			MyProjectsFunction.init()
 		}
-		
 		if (!window.console) window.console = {};
 		if (!console.log) console.log = window.alert;
 	</script>
@@ -99,7 +96,7 @@
 	</div>
 
 	<footer class="blog-footer">
-		<p>Blog template built for <a href="http://getbootstrap.com">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+		<p><a href="map.html">Карта сайта</a>.</p>
 		<p>
 			<a href="#">Back to top</a>
 		</p>

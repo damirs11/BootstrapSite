@@ -1,4 +1,4 @@
-var initBlogFeed_status = false;
+﻿var initBlogFeed_status = false;
 var initAboutMeFeed_status = false;
 var initMyProjectsFeed_status = false;
 
@@ -86,7 +86,7 @@ BlogFunction =
                 $.each(posts, function (index, value) { 
                     html += '<div class="blog-post">';
                     html += '<h2 class="blog-post-title">'+ value[1] +'</h2>';
-                    html += '<p class="blog-post-meta">' + value[2] + ' by <a onclick="AboutMeFunction.init()">'+ value[3] +'</a></p>';
+                    html += '<p class="blog-post-meta">' + value[3] + ' by <a onclick="AboutMeFunction.init()">'+ value[4] +'</a></p>';
                     html += '<div class="blog-post-content">';
 
                     if(value[5].length > 260){
