@@ -327,14 +327,81 @@ table[2][1]=5
 `
 var aboutMe = `
 <style>
-.aboutMeLogo {
-    margin: 0;
-    width: 50%;
-    height: 50%;
-}       
+  a {
+		text-decoration: none !important
+	}
 </style>
+<dir class="row">
+	<dir class="col-md-12">
 
-<dir class="aboutMeLogo"><img src="assets/Logo.jpg"></dir>
-<dir><p>Здравствуйте, меня зовут Дамир</p></dir>
+		<div id="carousel" class="carousel slide rounded mx-auto d-block img-thumbnail aboutMeLogo" data-ride="carousel">
+			<div class="carousel-inner">
+			<div class="item active">
+				<img src="assets/Logo.jpg" alt="...">
+			</div>
+			<div class="item">
+				<img src="assets/myFoto1.jpg" alt="...">
+			</div>
+			<div class="item">
+				<img src="assets/myFoto2.jpg" alt="...">
+			</div>
+			</div>
+			<!-- Элементы управления -->
+			<a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				<span class="sr-only">Предыдущий</span>
+			</a>
+			<a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				<span class="sr-only">Следующий</span>
+			</a>
+		</div>
 
+
+		<dir>
+			<a class="fab fa-github fa-3x fa-icon pulse"></a>
+			<br>
+			<a class="fab fa-discord fa-3x fa-icon pulse"></a>
+			<br>
+			<a class="fab fa-vk fa-3x fa-icon pulse"></a>
+		</dir>
+	</dir>
+	<dir class="blog-main">
+		<p>Здравствуйте, меня зовут Дамир и я являюсь <b>Junior JavaEE, C++ разработчиком.</b>
+		Есть не малый интерес к reverse engineering-у и написанию, пока что, простенького Программного обеспечения.
+		<br>
+		Ниже представлены языки в который я что-то да знаю или хотя бы писал что-то с помощью них:</p>
+		<table class="table">
+			<thead>
+				<th>Язык</th>
+				<th>Уровень владения</th>
+			</thead>
+			<tbody>
+			<tr class="success">
+				<td>С++</td>
+				<td>Крепкий средняк, по возможности развиваюсь в этом направлении.</td>
+			</tr>
+			<tr class="info">
+				<td>C</td>
+				<td>Язык с которого все началось.</td>
+			</tr>
+			<tr class="info">
+				<td>JavaEE</td>
+				<td>Из-за обстоятельств был выучен и учится по сей день для получения работы</td>
+			</tr>
+			<tr class="warning">
+				<td>HTML+CSS+JS+JQ</td>
+				<td>Чуть ниже среднего</td>
+			</tr>
+			<tr class="success">
+				<td>ASM</td>
+				<td>Понимаю основы</td>
+			</tr>
+			</tbody>
+		</table>
+	</dir>
+</dir>
 `
+
+var project_1 = ``
+var project_2 = ``

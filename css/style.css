@@ -187,3 +187,47 @@
   .blog-footer p:last-child {
 	margin-bottom: 0;
   }
+
+  .aboutMeLogo {
+    float: left;
+    margin-right: 10px;
+      width: 50%;
+    height: 50%;
+  }
+  .fab {
+    padding: 5px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    }
+    
+    .fab:hover {
+      opacity: 0.7;
+    }
+  
+    .fa-github {
+    color: #333;
+    }
+  
+    .fa-discord {
+    color: #738ADB
+    }
+  
+    .fa-vk {
+    color: 4680C2
+    }
+  
+    .item {
+    width: 268px;
+    height: 268px;
+  }
+
+  .pulse:hover{
+    animation: pulse 1s ease-in infinite;
+  }
+
+  @keyframes pulse{
+    25%  {transform: scale(0.9);}
+    75%  {transform: scale(1.1);}
+  }
