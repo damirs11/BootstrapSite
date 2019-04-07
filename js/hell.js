@@ -325,6 +325,20 @@ table[2][1]=5
 </pre>
 </div>
 `
+var post_3 = `
+<p>Cheat Engine– полезнейшая программа в арсенале любого геймера. 
+Изменить внутренние параметры игры и «создать» себе нужное количество игрового золота, 
+боеприпасов или любых других ресурсов в несколько кликов мышки, вот предназначение этой программы. 
+К сожалению, у многих игроков при первом использовании возникают вопросы, как ею правильно пользоваться, 
+поэтому мы написали для вас подробною инструкцию, как пользоваться Cheat Engine.<br />
+<div>
+	<audio src="assets/posts/3/get_lucky.mp3" controls></audio>
+</div>
+<div class="embed-responsive embed-responsive-16by9">
+	<iframe width="560" height="315" src="https://www.youtube.com/embed/lUY9KcFf2Ho" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+`
+
 var aboutMe = `
 <style>
   a {
@@ -403,5 +417,11 @@ var aboutMe = `
 </dir>
 `
 
-var project_1 = ``
-var project_2 = ``
+var project_1 = `
+	<p>Один из моих опытов в разработке Internal читов. Имеет самый базовый функционал в виде WH+AIM+ESP+BHOP и еще пару мелких фичей</p>
+	<p>Ссылка на <a href="https://github.com/damirs11/Internal_CsGo">GitHub</a></p>
+`
+var project_2 = `
+	<p>Один из моих опытов в разработке Internal читов. Имеет самый базовый функционал в виде WH+AIM+ESP+BHOP и еще пару мелких фичей</p>
+	<p>Ссылка на <a href="https://github.com/damirs11/Internal_CsGo">GitHub</a></p>
+`

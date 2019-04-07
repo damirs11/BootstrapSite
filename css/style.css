@@ -272,3 +272,13 @@
     color: #fff;
     top: 5px;
 }
+
+.projectpic {
+  margin: 25px;
+  display: block;
+  max-width:580px;
+  max-height:350px;
+  width: auto;
+  height: auto;
+  float: left;
+}
