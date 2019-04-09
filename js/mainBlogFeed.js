@@ -2,6 +2,8 @@
 var initAboutMeFeed_status = false;
 var initMyProjectsFeed_status = false;
 
+var url_init = false;
+
 BlogFunction = 
 {   
     init : function initBlogFeed(){
@@ -26,7 +28,7 @@ BlogFunction =
                 var html = '<div class="row" id="main-content-blog">'
 
                 html += '<div class="blog-header">';
-                html += '<h1 class="blog-title">Последние обновления</h1>';
+                html += '<h1 class="blog-title">Блог обо всем и ни о чем <i class="fas fa-blind"></i></h1>';
                 html += '<p class="lead blog-description">Добро пожаловать!</p>';
                 html += '</div>'; //blog-header
                 
@@ -76,7 +78,7 @@ BlogFunction =
                 var html = '<div class="row" id="main-content-blog">'
 
                 html += '<div class="blog-header">';
-                html += '<h1 class="blog-title">Последние обновления</h1>';
+                html += '<h1 class="blog-title">Блог обо всем и ни о чем <i class="fas fa-blind"></i></h1>';
                 html += '<p class="lead blog-description">Добро пожаловать!</p>';
                 html += '</div>'; //blog-header
                 
@@ -219,7 +221,7 @@ MyProjectsFunction =
 
                     if(value[3].length > 140){
                         html += value[3].slice(0, 140);
-                        html += '... <hr><a onclick="MyProjectsFunction.generatePost('+ value[0] +'); MyProjectsFunction.delete();" name="#main/' + value[0] + '" href="#main/' + value[0] + '">Продолжение...</a>';
+                        html += '... <hr><a onclick="MyProjectsFunction.generatePost('+ value[0] +'); MyProjectsFunction.delete();" name="#projects/' + value[0] + '" href="#projects/' + value[0] + '">Продолжение...</a>';
                     }
                     else
                         html += value[3];
@@ -269,7 +271,7 @@ MyProjectsFunction =
 
                     if(value[3].length > 140){
                         html += value[3].slice(0, 140);
-                        html += '... <hr><a href="#">Продолжение...</a>';
+                        html += '... <hr><a onclick="MyProjectsFunction.generatePost('+ value[0] +'); MyProjectsFunction.delete();" name="#projects/' + value[0] + '" href="#projects/' + value[0] + '">Продолжение...</a>';
                     }
                     else
                         html += value[3];

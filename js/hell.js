@@ -339,6 +339,40 @@ var post_3 = `
 </div>
 `
 
+var post_4 = `
+<p>При создании форм с использованием Bootstrap или не только обязательно задавайте всем элементам <span class="font-weight-bold">input</span>
+  соответствующее значение атрибута <span class="font-weight-bold">type</span>. Например, полям, предназначенным для
+  ввода электронного адреса, устанавливайте <span class="font-weight-bold">email</span>, полям, используемым для ввода
+  числовых данных – <span class="font-weight-bold">number</span> и т.д.</p>
+<p>Правила корректного создания форм в Bootstrap:</p>
+<ul>
+  <li>Поместить каждую группу элементов (например, <span class="font-weight-bold">input</span> и связанный с ним <span
+      class="font-weight-bold">label</span>) в элемент <span class="font-weight-bold">div</span> с классом <span class="font-weight-bold">form-group</span>.
+    Этот класс добавляет нижние отступы к группам элементов. Кроме этого данный класс также добавляет стили к некоторым
+    элементам формы, чтобы обеспечить их корректное отображение на различных устройствах.</li>
+  <li>Добавить к каждому текстовому элементу управления формы <span class="font-weight-bold">input</span>, <span class="font-weight-bold">select</span>
+    и <span class="font-weight-bold">textarea</span> класс <span class="font-weight-bold">form-control</span>. Данный
+    класс добавляет к элементам формы стили визуального оформления, оформление, когда он получает фокус, размеры и
+    многое другое.</li>
+</ul>
+<form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+`
+
 var aboutMe = `
 <style>
   a {
@@ -418,8 +452,8 @@ var aboutMe = `
 `
 
 var project_1 = `
-	<p>Один из моих опытов в разработке Internal читов. Имеет самый базовый функционал в виде WH+AIM+ESP+BHOP и еще пару мелких фичей</p>
-	<p>Ссылка на <a href="https://github.com/damirs11/Internal_CsGo">GitHub</a></p>
+	<p>Простой пример Web-приложения реализованного при помощи JavaEE и Фреймворка Dojo Toolkit                                                                    </p><br>
+	<p>Ссылка на <a href="https://github.com/damirs11/JavaEE-CRUD">GitHub</a></p>
 `
 var project_2 = `
 	<p>Один из моих опытов в разработке Internal читов. Имеет самый базовый функционал в виде WH+AIM+ESP+BHOP и еще пару мелких фичей</p>

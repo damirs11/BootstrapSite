@@ -13,8 +13,9 @@ $(document).ready(function(){
       var dbBlog_createData = 
       "INSERT INTO 'postsTable' ('title', 'article','date', 'author', 'mainText')" + 
       "VALUES ('Указатели',                                       'Что такое указатели',        date('now'),                  '~Dew',     '" + post_1.toString() + "')," + 
-      "('Динамическая память в C',                                '',                           date('now','-2 months'),      '~Dew',     '" + post_2.toString() + "')," + 
-      "('Инструкция по использованию программы Cheat Engine',     'описание',                   date('now','-4 months'),      '~Dew',     '" + post_3.toString() + "');"
+      "('Динамическая память в C',                                '',                           date('now','-2 months'),      '~Dew',     '" + post_2.toString() + "')," +
+      "('Инструкция по использованию программы Cheat Engine',     'описание',                   date('now','-4 months'),      '~Dew',     '" + post_3.toString() + "')," +
+      "('Пример формы с использованием BootStrap 3',              '',                           date('now','-6 months'),      '~Dew',     '" + post_4.toString() + "');" 
 
 
       var dbProjects_create = 

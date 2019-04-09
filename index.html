@@ -38,29 +38,70 @@
 		function checkHash() {
 			window.setTimeout(doHashCheck, 100)
 		}
+		
+		
+		var url = window.location.hash
+		var fnName = url.match(/^([^\/]+)/)[0];
+		url = url.replace(fnName, '');
+
+		console.log(url);
+		console.log(fnName);
+
+		var number = undefined;
+		if(url)
+		{
+			
+			number = url.match(/[\/\d]+$/)[0].replace(/\//, '');
+		}
+		fnName = fnName.replace(/^#/, '');
+		console.log(fnName);
+		console.log(number);
+
 		var doHashCheck = (function(global) {
 			return function() {
-			var fnName = window.location.hash.replace(/^#/,'');
-			console.log(fnName);
 			// fnName should be a native function, not a host method
-			if (typeof global[fnName] == 'function') {
+			if (typeof global[fnName] == 'function' && !url_init) {
+				url_init = true;
 				global[fnName]();
 			}
 			}
 		})(this);
-		
+
 		function main() {
-			BlogFunction.init(); 
-			BlogFunction.reset();
+			console.log(fnName);
+			console.log(number);
+			if(number)
+			{
+				BlogFunction.generatePost(number);
+				BlogFunction.delete();
+			} 
+			else
+			{
+				BlogFunction.init(); 
+				BlogFunction.reset();
+			}
 		}
 
 		function about() {
 			AboutMeFunction.init();
 		}
 
-		function project() {
-			MyProjectsFunction.init()
+		function projects() {
+			console.log(fnName);
+			console.log(number);
+			if(number)
+			{
+				MyProjectsFunction.generatePost(number);
+				MyProjectsFunction.delete();
+			} 
+			else
+			{
+				MyProjectsFunction.init(); 
+				MyProjectsFunction.reset();
+			}
 		}
+
+
 		if (!window.console) window.console = {};
 		if (!console.log) console.log = window.alert;
 	</script>
@@ -85,10 +126,10 @@
 		</div>
 		<div id="navbar" class="collapse navbar-collapse">
 			<ul class="nav navbar-nav navbar-right">
-				<li><a onclick="BlogFunction.init(); BlogFunction.reset();" name="main" href="#main">Главная страница</a></li>
-				<li><a onclick="AboutMeFunction.init()" name="about" href="#about">Обо мне</a></li>
-				<li><a onclick="MyProjectsFunction.init()" name="project" href="#project">Проекты</a></li>
-				<li><a href="#">Полезности</a></li>
+				<li><a onclick="BlogFunction.init(); BlogFunction.reset();" name="main" 		href="#main">Главная страница</a></li>
+				<li><a onclick="AboutMeFunction.init()" 					name="about" 		href="#about">Обо мне</a></li>
+				<li><a onclick="MyProjectsFunction.init()" 					name="projects" 	href="#projects">Проекты</a></li>
+				<li><a 																	 		href="links.html">Ссылки</a></li>
 			</ul>
 		</div><!--/.nav-collapse -->
 		</div>
